@@ -21,3 +21,7 @@ Route::get('/', function () {
 
 
 Route::get('/api', 'App\Http\Controllers\Api\v1\CategoryController@index');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

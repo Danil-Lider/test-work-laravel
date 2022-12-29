@@ -87,6 +87,14 @@ services:
             - '/dev/shm:/dev/shm'
         networks:
             - sail
+
+    # node:
+    #     image: 'node:16'
+    #     ports:
+    #         - '3000:3000'
+    #     command: npm install && npm run dev
+    #     volumes:
+    #         - '.:/var/www/html'
 networks:
     sail:
         driver: bridge
