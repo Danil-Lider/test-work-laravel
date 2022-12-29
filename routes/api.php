@@ -26,7 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::post('login', 'App\Http\Controllers\Api\Auth\LoginController@login');
-
+Route::get('refresh', 'App\Http\Controllers\Api\Auth\LoginController@refreshToken');
 
 
 // CATEGORY START
@@ -47,14 +47,14 @@ Route::delete('category/{id}', 'App\Http\Controllers\Api\v1\CategoryController@c
 
 // PRODUCT START
 
-Route::get('product', 'App\Http\Controllers\Api\v1\ProductController@product');
+Route::get('product', 'App\Http\Controllers\Api\v1\ProductController@category');
 
-Route::get('product/{id}', 'App\Http\Controllers\Api\v1\ProductController@productById');
+Route::get('product/{id}', 'App\Http\Controllers\Api\v1\ProductController@categoryById');
 
-Route::post('product', 'App\Http\Controllers\Api\v1\ProductController@productSave');
+Route::post('product', 'App\Http\Controllers\Api\v1\ProductController@categorySave');
 
-Route::put('product/{id}', 'App\Http\Controllers\Api\v1\ProductController@productEdit');
+Route::put('product/{id}', 'App\Http\Controllers\Api\v1\ProductController@categoryEdit');
 
-Route::delete('product/{id}', 'App\Http\Controllers\Api\v1\ProductController@productDelete');
+Route::delete('product/{id}', 'App\Http\Controllers\Api\v1\ProductController@categoryDelete');
 
 // PRODUCT END

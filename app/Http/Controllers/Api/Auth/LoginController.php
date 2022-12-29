@@ -17,4 +17,18 @@ class LoginController extends Controller
 
         return response()->json(['token' => $token]);
     }
+
+    public function refreshToken()
+    {
+        try{
+            $token = auth()->refresh();
+        }catch(\Tymon\JWTAuth\Exceptions\TokenInvalidException $e){
+            return response()->json(
+                ['error'=> true, 
+                'message' => $e->getMessage()]
+            );
+        }
+
+        return response()->json(['token' => $token]);
+    }
 }
