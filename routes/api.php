@@ -5,6 +5,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\v2\CategoryController;
+use App\Http\Controllers\Api\v2\ProductController;
+
 // use App\Http\Controllers;
 
 // URL::setRootControllerNamespace('App\Http\Controllers');
@@ -31,37 +34,46 @@ Route::get('refresh', 'App\Http\Controllers\Api\Auth\LoginController@refreshToke
 
 
 
+
+
+
+
+
 Route::group(['middleware' => ['jwt.verify']], function(){
+
+
+    Route::apiResource('v2/category', CategoryController::class);
+    Route::apiResource('v2/product', ProductController::class);
 
     // CATEGORY START
 
-    Route::get('category', 'App\Http\Controllers\Api\v1\CategoryController@category');
+    // Route::get('category', 'App\Http\Controllers\Api\v1\CategoryController@category');
 
-    Route::get('category/{id}', 'App\Http\Controllers\Api\v1\CategoryController@categoryById');
+    // Route::get('category/{id}', 'App\Http\Controllers\Api\v1\CategoryController@categoryById');
 
-    Route::post('category', 'App\Http\Controllers\Api\v1\CategoryController@categorySave');
+    // Route::post('category', 'App\Http\Controllers\Api\v1\CategoryController@categorySave');
 
-    Route::put('category/{id}', 'App\Http\Controllers\Api\v1\CategoryController@categoryEdit');
+    // Route::put('category/{id}', 'App\Http\Controllers\Api\v1\CategoryController@categoryEdit');
 
     // ALSO DELITE PRODUCTS WHERE CATEGORY ID IS THIS ID
-    Route::delete('category/{id}', 'App\Http\Controllers\Api\v1\CategoryController@categoryDelete');
+    // Route::delete('category/{id}', 'App\Http\Controllers\Api\v1\CategoryController@categoryDelete');
 
     // CATEGORY END
 
 
     // PRODUCT START
 
-    Route::get('product', 'App\Http\Controllers\Api\v1\ProductController@category');
+    // Route::get('product', 'App\Http\Controllers\Api\v1\ProductController@category');
 
-    Route::get('product/{id}', 'App\Http\Controllers\Api\v1\ProductController@categoryById');
+    // Route::get('product/{id}', 'App\Http\Controllers\Api\v1\ProductController@categoryById');
 
-    Route::post('product', 'App\Http\Controllers\Api\v1\ProductController@categorySave');
+    // Route::post('product', 'App\Http\Controllers\Api\v1\ProductController@categorySave');
 
-    Route::put('product/{id}', 'App\Http\Controllers\Api\v1\ProductController@categoryEdit');
+    // Route::put('product/{id}', 'App\Http\Controllers\Api\v1\ProductController@categoryEdit');
 
-    Route::delete('product/{id}', 'App\Http\Controllers\Api\v1\ProductController@categoryDelete');
+    // Route::delete('product/{id}', 'App\Http\Controllers\Api\v1\ProductController@categoryDelete');
 
     // PRODUCT END
 
-
 });
+
